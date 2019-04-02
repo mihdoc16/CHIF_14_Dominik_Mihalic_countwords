@@ -23,13 +23,24 @@ public class Book {
     public HashMap<String, Integer> countWords(String word){
         HashMap<String, Integer> something = new HashMap<>();
         
-        if(something.containsKey(word)){
-            int x = something.get(word);
-            something.replace(word, x, x++);
-        } else {
-            something.put(word, 1);
+//        if(something.containsKey(word)){
+//            int x = something.get(word);
+//            something.replace(word, x, x++);
+//        } else {
+//            something.put(word, 1);
+//        }
+        for (String string : something.keySet()) {
+            if(string.equals(word)){
+                int x = something.get(string);
+                something.replace(string, x, x++);
+            }
         }
-        
+        if(!something.containsKey(word)){
+            something.put(word, 1);
+            int counter = 0;
+            System.out.println(counter);
+            counter++;
+        }
         return something;
     }
 
